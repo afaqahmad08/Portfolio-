@@ -1,1 +1,409 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afaq Ahmed Khan | Crafting Data-Driven Experiences</title>
+  <meta name="description" content="Afaq Ahmed Khan — Web Developer who turns complex data into clean, powerful web solutions. SQL • PHP • Laravel • Python" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            ink: '#0a0f1c',
+            'ink-light': '#111827',
+            accent: '#3b82f6',
+            'accent-glow': '#60a5fa',
+            soft: '#f1f5f9',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    .font-display { font-family: 'Space Grotesk', sans-serif; }
+    
+    .glow-border {
+      box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.3), 0 0 40px rgba(59, 130, 246, 0.15);
+    }
+    
+    .skill-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .skill-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 20px 40px -12px rgba(59, 130, 246, 0.25);
+    }
+    
+    .project-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #3b82f6;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .float { animation: float 6s ease-in-out infinite; }
+    
+    .gradient-text {
+      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-bg {
+      background: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59, 130, 246, 0.25), transparent),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(37, 99, 235, 0.15), transparent),
+        #0a0f1c;
+    }
+  </style>
+</head>
+<body class="bg-soft text-slate-800 antialiased">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-ink/90 backdrop-blur-xl border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="#home" class="font-display font-bold text-white text-lg tracking-tight">
+        Afaq<span class="text-accent">.</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+        <a href="#skills" class="nav-link hover:text-white transition">Skills</a>
+        <a href="#work" class="nav-link hover:text-white transition">Work</a>
+        <a href="#about" class="nav-link hover:text-white transition">About</a>
+        <a href="#contact" class="nav-link hover:text-white transition">Contact</a>
+      </div>
+      <a href="https://wa.me/923190617290" target="_blank" 
+         class="text-xs font-semibold bg-accent hover:bg-accent-glow text-white px-4 py-2 rounded-full transition">
+        Let's Talk
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero-bg min-h-screen flex items-center pt-20 pb-16">
+    <div class="max-w-6xl mx-auto px-5 w-full">
+      <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+        
+        <!-- Left Content -->
+        <div class="order-2 md:order-1 text-center md:text-left">
+          <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-6">
+            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+            <span class="text-slate-300 text-sm font-medium">Available for opportunities</span>
+          </div>
+          
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6">
+            I turn messy data into 
+            <span class="gradient-text">clean digital products</span>
+          </h1>
+          
+          <p class="text-slate-400 text-lg leading-relaxed max-w-lg mb-8">
+            Web Developer & SQL Specialist who builds reliable systems with PHP, Laravel, Python and modern frontend tools. 
+            Focused on performance, clean architecture and real-world impact.
+          </p>
+          
+          <div class="flex flex-wrap justify-center md:justify-start gap-4">
+            <a href="#work" class="inline-flex items-center gap-2 bg-accent hover:bg-accent-glow text-white font-semibold px-6 py-3.5 rounded-xl transition shadow-lg shadow-blue-500/25">
+              See My Work
+              <i class="fas fa-arrow-right text-sm"></i>
+            </a>
+            <a href="https://github.com/afaqahmad08" target="_blank" 
+               class="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold px-6 py-3.5 rounded-xl transition">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+          </div>
+          
+          <!-- Quick Stats -->
+          <div class="mt-12 flex flex-wrap justify-center md:justify-start gap-8 text-center md:text-left">
+            <div>
+              <p class="font-display text-2xl font-bold text-white">SQL</p>
+              <p class="text-slate-500 text-sm">Core Strength</p>
+            </div>
+            <div>
+              <p class="font-display text-2xl font-bold text-white">Full-Stack</p>
+              <p class="text-slate-500 text-sm">PHP • Laravel • JS</p>
+            </div>
+            <div>
+              <p class="font-display text-2xl font-bold text-white">Clean Code</p>
+              <p class="text-slate-500 text-sm">Always</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Right - Photo -->
+        <div class="order-1 md:order-2 flex justify-center">
+          <div class="relative float">
+            <div class="absolute -inset-4 bg-accent/20 rounded-full blur-3xl"></div>
+            <div class="relative">
+              <img 
+                src="profile.jpg" 
+                alt="Afaq Ahmed Khan" 
+                class="w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-full object-cover border-4 border-white/10 glow-border"
+              />
+              <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-ink border border-white/10 rounded-full px-5 py-2 shadow-xl">
+                <p class="font-display font-semibold text-white text-sm whitespace-nowrap">Afaq Ahmed Khan</p>
+                <p class="text-accent text-xs text-center">Web Developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="text-center mb-16">
+        <p class="text-accent font-semibold text-sm tracking-widest uppercase mb-3">Toolbox</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-ink">What I work with</h2>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
+          <div class="w-14 h-14 mx-auto mb-4 bg-blue-100 rounded-xl flex items-center justify-center">
+            <i class="fas fa-database text-2xl text-blue-600"></i>
+          </div>
+          <h3 class="font-semibold text-ink">SQL</h3>
+          <p class="text-xs text-slate-500 mt-1">My Strength</p>
+        </div>
+        
+        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
+          <div class="w-14 h-14 mx-auto mb-4 bg-orange-100 rounded-xl flex items-center justify-center">
+            <i class="fab fa-html5 text-2xl text-orange-500"></i>
+          </div>
+          <h3 class="font-semibold text-ink">HTML5</h3>
+        </div>
+        
+        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
+          <div class="w-14 h-14 mx-auto mb-4 bg-blue-100 rounded-xl flex items-center justify-center">
+            <i class="fab fa-css3-alt text-2xl text-blue-500"></i>
+          </div>
+          <h3 class="font-semibold text-ink">CSS3</h3>
+        </div>
+        
+        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
+          <div class="w-14 h-14 mx-auto mb-4 bg-yellow-100 rounded-xl flex items-center justify-center">
+            <i class="fab fa-js text-2xl text-yellow-500"></i>
+          </div>
+          <h3 class="font-semibold text-ink">JavaScript</h3>
+        </div>
+        
+        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
+          <div class="w-14 h-14 mx-auto mb-4 bg-purple-100 rounded-xl flex items-center justify-center">
+            <i class="fab fa-bootstrap text-2xl text-purple-600"></i>
+          </div>
+          <h3 class="font-semibold text-ink">Bootstrap</h3>
+        </div>
+        
+        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
+          <div class="w-14 h-14 mx-auto mb-4 bg-indigo-100 rounded-xl flex items-center justify-center">
+            <i class="fab fa-php text-2xl text-indigo-500"></i>
+          </div>
+          <h3 class="font-semibold text-ink">PHP</h3>
+        </div>
+        
+        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
+          <div class="w-14 h-14 mx-auto mb-4 bg-red-100 rounded-xl flex items-center justify-center">
+            <i class="fab fa-laravel text-2xl text-red-500"></i>
+          </div>
+          <h3 class="font-semibold text-ink">Laravel</h3>
+        </div>
+        
+        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
+          <div class="w-14 h-14 mx-auto mb-4 bg-blue-100 rounded-xl flex items-center justify-center">
+            <i class="fab fa-python text-2xl text-blue-600"></i>
+          </div>
+          <h3 class="font-semibold text-ink">Python</h3>
+        </div>
+        
+        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
+          <div class="w-14 h-14 mx-auto mb-4 bg-green-100 rounded-xl flex items-center justify-center">
+            <i class="fas fa-leaf text-2xl text-green-600"></i>
+          </div>
+          <h3 class="font-semibold text-ink">Django</h3>
+        </div>
+        
+        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
+          <div class="w-14 h-14 mx-auto mb-4 bg-cyan-100 rounded-xl flex items-center justify-center">
+            <i class="fas fa-server text-2xl text-cyan-600"></i>
+          </div>
+          <h3 class="font-semibold text-ink">MySQL</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Work -->
+  <section id="work" class="py-24 bg-soft">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="text-center mb-16">
+        <p class="text-accent font-semibold text-sm tracking-widest uppercase mb-3">Selected Work</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-ink">Featured Project</h2>
+      </div>
+
+      <div class="max-w-3xl mx-auto">
+        <div class="project-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
+          <div class="bg-gradient-to-br from-ink via-ink-light to-blue-900 p-8 sm:p-10">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <span class="inline-block bg-accent/20 text-accent-glow text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                  Healthcare • Intelligence
+                </span>
+                <h3 class="font-display text-2xl sm:text-3xl font-bold text-white mb-2">
+                  PHIP
+                </h3>
+                <p class="text-slate-300 text-lg">Patient History Intelligence</p>
+              </div>
+              <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center shrink-0">
+                <i class="fas fa-notes-medical text-3xl text-white"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="p-8 sm:p-10">
+            <p class="text-slate-600 leading-relaxed mb-6">
+              An intelligent system built to manage, structure and analyze patient medical history. 
+              Designed with strong SQL foundations so doctors and systems can retrieve meaningful insights quickly and reliably.
+            </p>
+            
+            <div class="flex flex-wrap gap-2 mb-8">
+              <span class="bg-slate-100 text-slate-700 text-xs font-medium px-3 py-1.5 rounded-full">PHP</span>
+              <span class="bg-slate-100 text-slate-700 text-xs font-medium px-3 py-1.5 rounded-full">Laravel</span>
+              <span class="bg-slate-100 text-slate-700 text-xs font-medium px-3 py-1.5 rounded-full">SQL</span>
+              <span class="bg-slate-100 text-slate-700 text-xs font-medium px-3 py-1.5 rounded-full">MySQL</span>
+              <span class="bg-slate-100 text-slate-700 text-xs font-medium px-3 py-1.5 rounded-full">Bootstrap</span>
+            </div>
+            
+            <a href="https://github.com/afaqahmad08" target="_blank" 
+               class="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all">
+              <i class="fab fa-github"></i>
+              View on GitHub
+              <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-24 bg-white">
+    <div class="max-w-3xl mx-auto px-5 text-center">
+      <p class="text-accent font-semibold text-sm tracking-widest uppercase mb-3">About</p>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-ink mb-8">A bit about me</h2>
+      
+      <p class="text-slate-600 text-lg leading-relaxed mb-6">
+        I'm <strong class="text-ink">Afaq Ahmed Khan</strong> — a Web Developer who genuinely enjoys solving problems with clean code and solid databases.
+      </p>
+      <p class="text-slate-600 text-lg leading-relaxed mb-10">
+        My strongest area is <strong class="text-ink">SQL & data modeling</strong>. I believe great applications start with great data structure. 
+        Whether it's PHP/Laravel backends or Python tools, I focus on writing code that is maintainable, performant and actually useful.
+      </p>
+      
+      <div class="flex flex-wrap justify-center gap-3">
+        <span class="bg-soft border border-slate-200 px-4 py-2 rounded-full text-sm font-medium text-slate-700">
+          <i class="fas fa-database text-accent mr-2"></i>Database First
+        </span>
+        <span class="bg-soft border border-slate-200 px-4 py-2 rounded-full text-sm font-medium text-slate-700">
+          <i class="fas fa-code text-accent mr-2"></i>Clean Architecture
+        </span>
+        <span class="bg-soft border border-slate-200 px-4 py-2 rounded-full text-sm font-medium text-slate-700">
+          <i class="fas fa-rocket text-accent mr-2"></i>Problem Solver
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24 bg-ink">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="text-center mb-14">
+        <p class="text-accent font-semibold text-sm tracking-widest uppercase mb-3">Contact</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Let's build something</h2>
+        <p class="text-slate-400 max-w-md mx-auto">Open to freelance work, full-time roles and interesting collaborations.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
+        <a href="https://wa.me/923190617290" target="_blank"
+           class="group flex flex-col items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-6 transition">
+          <div class="w-14 h-14 bg-green-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition">
+            <i class="fab fa-whatsapp text-2xl text-green-400"></i>
+          </div>
+          <div class="text-center">
+            <p class="text-white font-semibold">WhatsApp</p>
+            <p class="text-slate-500 text-sm mt-1">+92 319 0617290</p>
+          </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/afaq-ahmed-khan-16b746307" target="_blank"
+           class="group flex flex-col items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-6 transition">
+          <div class="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition">
+            <i class="fab fa-linkedin-in text-2xl text-blue-400"></i>
+          </div>
+          <div class="text-center">
+            <p class="text-white font-semibold">LinkedIn</p>
+            <p class="text-slate-500 text-sm mt-1">Connect</p>
+          </div>
+        </a>
+
+        <a href="https://github.com/afaqahmad08" target="_blank"
+           class="group flex flex-col items-center gap-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-6 transition">
+          <div class="w-14 h-14 bg-slate-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition">
+            <i class="fab fa-github text-2xl text-slate-300"></i>
+          </div>
+          <div class="text-center">
+            <p class="text-white font-semibold">GitHub</p>
+            <p class="text-slate-500 text-sm mt-1">@afaqahmad08</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-ink border-t border-white/5 py-8">
+    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-slate-500 text-sm">
+        © 2026 Afaq Ahmed Khan
+      </p>
+      <p class="text-slate-600 text-sm">
+        Built with intention
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
