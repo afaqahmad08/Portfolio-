@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Afaq Ahmed Khan | AI/ML • Frontend • Full-Stack</title>
-  <meta name="description" content="Afaq Ahmed Khan — AI/ML Enthusiast, Frontend & Full-Stack Developer. Python • Machine Learning • React • JavaScript • PHP • Laravel" />
+  <title>Afaq Ahmed Khan | AI/ML • Frontend • Full-Stack Developer</title>
+  <meta name="description" content="Afaq Ahmed Khan — AI/ML Enthusiast, Frontend & Full-Stack Developer from Lahore. Python, Machine Learning, JavaScript, Laravel, Django." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -17,11 +17,25 @@
             display: ['Space Grotesk', 'sans-serif'],
           },
           colors: {
-            ink: '#0a0f1c',
-            'ink-light': '#111827',
+            ink: '#060a14',
+            'ink-soft': '#0d1424',
             accent: '#3b82f6',
-            'accent-glow': '#60a5fa',
-            soft: '#f1f5f9',
+            'accent-light': '#60a5fa',
+            soft: '#f8fafc',
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.7s ease-out forwards',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(30px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-14px)' },
+            }
           }
         }
       }
@@ -32,23 +46,42 @@
     body { font-family: 'Inter', sans-serif; }
     .font-display { font-family: 'Space Grotesk', sans-serif; }
     
-    .glow-border {
-      box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.3), 0 0 40px rgba(59, 130, 246, 0.15);
+    .gradient-text {
+      background: linear-gradient(135deg, #93c5fd 0%, #3b82f6 45%, #1d4ed8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero-bg {
+      background: 
+        radial-gradient(ellipse 90% 60% at 50% -30%, rgba(59, 130, 246, 0.28), transparent),
+        radial-gradient(ellipse 50% 40% at 90% 50%, rgba(37, 99, 235, 0.12), transparent),
+        radial-gradient(ellipse 40% 30% at 10% 80%, rgba(99, 102, 241, 0.08), transparent),
+        #060a14;
+    }
+    
+    .glass {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
     
     .skill-card {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .skill-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 20px 40px -12px rgba(59, 130, 246, 0.25);
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px -12px rgba(59, 130, 246, 0.2);
+      border-color: rgba(59, 130, 246, 0.3);
     }
     
     .project-card {
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .project-card:hover {
-      transform: translateY(-10px);
+      transform: translateY(-12px);
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.15);
     }
     
     .nav-link {
@@ -57,123 +90,136 @@
     .nav-link::after {
       content: '';
       position: absolute;
-      bottom: -4px;
+      bottom: -3px;
       left: 0;
       width: 0;
       height: 2px;
       background: #3b82f6;
       transition: width 0.3s ease;
+      border-radius: 2px;
     }
     .nav-link:hover::after {
       width: 100%;
     }
     
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      transition: all 0.3s ease;
     }
-    .float { animation: float 6s ease-in-out infinite; }
-    
-    .gradient-text {
-      background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #60a5fa, #3b82f6);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -8px rgba(59, 130, 246, 0.5);
     }
     
-    .hero-bg {
-      background: 
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59, 130, 246, 0.25), transparent),
-        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(37, 99, 235, 0.15), transparent),
-        #0a0f1c;
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #60a5fa);
+      border-radius: 2px;
     }
   </style>
 </head>
-<body class="bg-soft text-slate-800 antialiased">
+<body class="bg-soft text-slate-800 antialiased overflow-x-hidden">
 
   <!-- Navbar -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-ink/90 backdrop-blur-xl border-b border-white/5">
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-ink/80 backdrop-blur-2xl border-b border-white/5">
     <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-      <a href="#home" class="font-display font-bold text-white text-lg tracking-tight">
+      <a href="#home" class="font-display font-bold text-white text-xl tracking-tight">
         Afaq<span class="text-accent">.</span>
       </a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
+      <div class="hidden md:flex items-center gap-9 text-sm font-medium text-slate-400">
         <a href="#skills" class="nav-link hover:text-white transition">Skills</a>
         <a href="#work" class="nav-link hover:text-white transition">Work</a>
         <a href="#about" class="nav-link hover:text-white transition">About</a>
         <a href="#contact" class="nav-link hover:text-white transition">Contact</a>
       </div>
       <a href="https://wa.me/923190617290" target="_blank" 
-         class="text-xs font-semibold bg-accent hover:bg-accent-glow text-white px-4 py-2 rounded-full transition">
+         class="text-xs font-semibold btn-primary text-white px-5 py-2.5 rounded-full">
         Let's Talk
       </a>
     </div>
   </nav>
 
   <!-- Hero -->
-  <section id="home" class="hero-bg min-h-screen flex items-center pt-20 pb-16">
-    <div class="max-w-6xl mx-auto px-5 w-full">
-      <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+  <section id="home" class="hero-bg min-h-screen flex items-center pt-24 pb-20 relative overflow-hidden">
+    <div class="absolute top-1/4 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl"></div>
+    
+    <div class="max-w-6xl mx-auto px-5 w-full relative z-10">
+      <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
         
-        <div class="order-2 md:order-1 text-center md:text-left">
-          <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-6">
-            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+        <div class="order-2 lg:order-1 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2.5 glass rounded-full px-4 py-1.5 mb-7">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400"></span>
+            </span>
             <span class="text-slate-300 text-sm font-medium">Available for opportunities</span>
           </div>
           
-          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6">
-            Building intelligent systems with 
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-[3.4rem] font-bold text-white leading-[1.15] mb-6">
+            Building intelligent systems with<br>
             <span class="gradient-text">AI/ML & modern frontend</span>
           </h1>
           
-          <p class="text-slate-400 text-lg leading-relaxed max-w-lg mb-8">
-            AI/ML Enthusiast, Frontend & Full-Stack Developer. I work with Python, machine learning concepts, 
-            modern JavaScript, and reliable backends (PHP/Laravel/Django) to turn ideas into clean, useful products.
+          <p class="text-slate-400 text-lg leading-relaxed max-w-lg mx-auto lg:mx-0 mb-9">
+            Fresh BS IT graduate who loves turning ideas into clean products. 
+            Focused on Python, machine learning, modern JavaScript and solid full-stack foundations.
           </p>
           
-          <div class="flex flex-wrap justify-center md:justify-start gap-4">
-            <a href="#work" class="inline-flex items-center gap-2 bg-accent hover:bg-accent-glow text-white font-semibold px-6 py-3.5 rounded-xl transition shadow-lg shadow-blue-500/25">
-              See My Work
+          <div class="flex flex-wrap justify-center lg:justify-start gap-3.5">
+            <a href="#work" class="inline-flex items-center gap-2 btn-primary text-white font-semibold px-7 py-3.5 rounded-xl">
+              View My Work
               <i class="fas fa-arrow-right text-sm"></i>
             </a>
             <a href="https://github.com/afaqahmad08" target="_blank" 
-               class="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold px-6 py-3.5 rounded-xl transition">
-              <i class="fab fa-github"></i> GitHub
+               class="inline-flex items-center gap-2 glass hover:bg-white/10 text-white font-semibold px-6 py-3.5 rounded-xl transition">
+              <i class="fab fa-github text-lg"></i> GitHub
             </a>
             <a href="https://www.linkedin.com/in/afaq-ahmed-khan-16b746307" target="_blank" 
-               class="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold px-6 py-3.5 rounded-xl transition">
-              <i class="fab fa-linkedin"></i> LinkedIn
+               class="inline-flex items-center gap-2 glass hover:bg-white/10 text-white font-semibold px-6 py-3.5 rounded-xl transition">
+              <i class="fab fa-linkedin text-lg"></i> LinkedIn
             </a>
           </div>
           
-          <div class="mt-12 flex flex-wrap justify-center md:justify-start gap-8 text-center md:text-left">
-            <div>
+          <div class="mt-14 flex flex-wrap justify-center lg:justify-start gap-10">
+            <div class="text-center lg:text-left">
               <p class="font-display text-2xl font-bold text-white">AI / ML</p>
-              <p class="text-slate-500 text-sm">Python • Data</p>
+              <p class="text-slate-500 text-sm mt-0.5">Python • Data</p>
             </div>
-            <div>
+            <div class="text-center lg:text-left">
               <p class="font-display text-2xl font-bold text-white">Frontend</p>
-              <p class="text-slate-500 text-sm">JS • HTML • CSS</p>
+              <p class="text-slate-500 text-sm mt-0.5">JS • Tailwind</p>
             </div>
-            <div>
+            <div class="text-center lg:text-left">
               <p class="font-display text-2xl font-bold text-white">Full-Stack</p>
-              <p class="text-slate-500 text-sm">Laravel • Django</p>
+              <p class="text-slate-500 text-sm mt-0.5">Laravel • Django</p>
             </div>
           </div>
         </div>
         
-        <div class="order-1 md:order-2 flex justify-center">
-          <div class="relative float">
-            <div class="absolute -inset-4 bg-accent/20 rounded-full blur-3xl"></div>
+        <div class="order-1 lg:order-2 flex justify-center">
+          <div class="relative animate-float">
+            <div class="absolute -inset-6 bg-gradient-to-br from-blue-500/25 to-indigo-600/20 rounded-full blur-2xl"></div>
             <div class="relative">
               <img 
                 src="profile.jpg" 
                 alt="Afaq Ahmed Khan" 
-                class="w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-full object-cover border-4 border-white/10 glow-border"
+                class="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full object-cover border-[5px] border-white/10 shadow-2xl"
               />
-              <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-ink border border-white/10 rounded-full px-5 py-2 shadow-xl">
-                <p class="font-display font-semibold text-white text-sm whitespace-nowrap">Afaq Ahmed Khan</p>
-                <p class="text-accent text-xs text-center">AI/ML • Frontend • Full-Stack</p>
+              <div class="absolute -bottom-4 left-1/2 -translate-x-1/2 glass rounded-2xl px-6 py-3 shadow-xl min-w-[200px]">
+                <p class="font-display font-semibold text-white text-sm text-center">Afaq Ahmed Khan</p>
+                <p class="text-accent-light text-xs text-center mt-0.5">AI/ML • Frontend • Full-Stack</p>
               </div>
             </div>
           </div>
@@ -184,267 +230,277 @@
   </section>
 
   <!-- Skills -->
-  <section id="skills" class="py-24 bg-white">
+  <section id="skills" class="py-24 md:py-28 bg-white">
     <div class="max-w-6xl mx-auto px-5">
       <div class="text-center mb-16">
         <p class="text-accent font-semibold text-sm tracking-widest uppercase mb-3">Toolbox</p>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold text-ink">What I work with</h2>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-ink section-title">What I work with</h2>
       </div>
 
-      <h3 class="font-display text-xl font-semibold text-ink mb-6 flex items-center gap-2">
-        <i class="fas fa-brain text-accent"></i> AI / Machine Learning
-      </h3>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-12">
-        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
-          <div class="w-14 h-14 mx-auto mb-4 bg-blue-100 rounded-xl flex items-center justify-center">
-            <i class="fab fa-python text-2xl text-blue-600"></i>
+      <div class="mb-14">
+        <h3 class="font-display text-lg font-semibold text-ink mb-6 flex items-center gap-2.5">
+          <span class="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center">
+            <i class="fas fa-brain text-accent"></i>
+          </span>
+          AI / Machine Learning
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+          <div class="skill-card bg-soft rounded-2xl p-5 text-center border border-slate-100">
+            <div class="w-12 h-12 mx-auto mb-3 bg-blue-100 rounded-xl flex items-center justify-center">
+              <i class="fab fa-python text-xl text-blue-600"></i>
+            </div>
+            <h4 class="font-semibold text-ink text-sm">Python</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">Primary</p>
           </div>
-          <h3 class="font-semibold text-ink">Python</h3>
-          <p class="text-xs text-slate-500 mt-1">Primary</p>
-        </div>
-        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
-          <div class="w-14 h-14 mx-auto mb-4 bg-green-100 rounded-xl flex items-center justify-center">
-            <i class="fas fa-table text-2xl text-green-600"></i>
+          <div class="skill-card bg-soft rounded-2xl p-5 text-center border border-slate-100">
+            <div class="w-12 h-12 mx-auto mb-3 bg-green-100 rounded-xl flex items-center justify-center">
+              <i class="fas fa-table text-xl text-green-600"></i>
+            </div>
+            <h4 class="font-semibold text-ink text-sm">Pandas</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">Data</p>
           </div>
-          <h3 class="font-semibold text-ink">Pandas</h3>
-          <p class="text-xs text-slate-500 mt-1">Data Processing</p>
-        </div>
-        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
-          <div class="w-14 h-14 mx-auto mb-4 bg-purple-100 rounded-xl flex items-center justify-center">
-            <i class="fas fa-square-root-alt text-2xl text-purple-600"></i>
+          <div class="skill-card bg-soft rounded-2xl p-5 text-center border border-slate-100">
+            <div class="w-12 h-12 mx-auto mb-3 bg-purple-100 rounded-xl flex items-center justify-center">
+              <i class="fas fa-square-root-alt text-xl text-purple-600"></i>
+            </div>
+            <h4 class="font-semibold text-ink text-sm">NumPy</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">Numerical</p>
           </div>
-          <h3 class="font-semibold text-ink">NumPy</h3>
-          <p class="text-xs text-slate-500 mt-1">Numerical</p>
-        </div>
-        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
-          <div class="w-14 h-14 mx-auto mb-4 bg-orange-100 rounded-xl flex items-center justify-center">
-            <i class="fas fa-robot text-2xl text-orange-500"></i>
+          <div class="skill-card bg-soft rounded-2xl p-5 text-center border border-slate-100">
+            <div class="w-12 h-12 mx-auto mb-3 bg-orange-100 rounded-xl flex items-center justify-center">
+              <i class="fas fa-robot text-xl text-orange-500"></i>
+            </div>
+            <h4 class="font-semibold text-ink text-sm">scikit-learn</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">ML Models</p>
           </div>
-          <h3 class="font-semibold text-ink">scikit-learn</h3>
-          <p class="text-xs text-slate-500 mt-1">ML Models</p>
-        </div>
-        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
-          <div class="w-14 h-14 mx-auto mb-4 bg-cyan-100 rounded-xl flex items-center justify-center">
-            <i class="fas fa-chart-line text-2xl text-cyan-600"></i>
+          <div class="skill-card bg-soft rounded-2xl p-5 text-center border border-slate-100">
+            <div class="w-12 h-12 mx-auto mb-3 bg-cyan-100 rounded-xl flex items-center justify-center">
+              <i class="fas fa-chart-line text-xl text-cyan-600"></i>
+            </div>
+            <h4 class="font-semibold text-ink text-sm">Data Analysis</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">Insights</p>
           </div>
-          <h3 class="font-semibold text-ink">Data Analysis</h3>
-          <p class="text-xs text-slate-500 mt-1">Insights</p>
-        </div>
-      </div>
-
-      <h3 class="font-display text-xl font-semibold text-ink mb-6 flex items-center gap-2">
-        <i class="fas fa-laptop-code text-accent"></i> Frontend
-      </h3>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mb-12">
-        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
-          <div class="w-14 h-14 mx-auto mb-4 bg-orange-100 rounded-xl flex items-center justify-center">
-            <i class="fab fa-html5 text-2xl text-orange-500"></i>
-          </div>
-          <h3 class="font-semibold text-ink">HTML5</h3>
-        </div>
-        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
-          <div class="w-14 h-14 mx-auto mb-4 bg-blue-100 rounded-xl flex items-center justify-center">
-            <i class="fab fa-css3-alt text-2xl text-blue-500"></i>
-          </div>
-          <h3 class="font-semibold text-ink">CSS3</h3>
-        </div>
-        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
-          <div class="w-14 h-14 mx-auto mb-4 bg-yellow-100 rounded-xl flex items-center justify-center">
-            <i class="fab fa-js text-2xl text-yellow-500"></i>
-          </div>
-          <h3 class="font-semibold text-ink">JavaScript</h3>
-        </div>
-        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
-          <div class="w-14 h-14 mx-auto mb-4 bg-purple-100 rounded-xl flex items-center justify-center">
-            <i class="fab fa-bootstrap text-2xl text-purple-600"></i>
-          </div>
-          <h3 class="font-semibold text-ink">Bootstrap</h3>
-        </div>
-        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
-          <div class="w-14 h-14 mx-auto mb-4 bg-sky-100 rounded-xl flex items-center justify-center">
-            <i class="fas fa-wind text-2xl text-sky-500"></i>
-          </div>
-          <h3 class="font-semibold text-ink">Tailwind CSS</h3>
         </div>
       </div>
 
-      <h3 class="font-display text-xl font-semibold text-ink mb-6 flex items-center gap-2">
-        <i class="fas fa-server text-accent"></i> Backend & Databases
-      </h3>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
-          <div class="w-14 h-14 mx-auto mb-4 bg-indigo-100 rounded-xl flex items-center justify-center">
-            <i class="fab fa-php text-2xl text-indigo-500"></i>
+      <div class="mb-14">
+        <h3 class="font-display text-lg font-semibold text-ink mb-6 flex items-center gap-2.5">
+          <span class="w-9 h-9 rounded-xl bg-indigo-50 flex items-center justify-center">
+            <i class="fas fa-laptop-code text-indigo-500"></i>
+          </span>
+          Frontend
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+          <div class="skill-card bg-soft rounded-2xl p-5 text-center border border-slate-100">
+            <div class="w-12 h-12 mx-auto mb-3 bg-orange-100 rounded-xl flex items-center justify-center">
+              <i class="fab fa-html5 text-xl text-orange-500"></i>
+            </div>
+            <h4 class="font-semibold text-ink text-sm">HTML5</h4>
           </div>
-          <h3 class="font-semibold text-ink">PHP</h3>
+          <div class="skill-card bg-soft rounded-2xl p-5 text-center border border-slate-100">
+            <div class="w-12 h-12 mx-auto mb-3 bg-blue-100 rounded-xl flex items-center justify-center">
+              <i class="fab fa-css3-alt text-xl text-blue-500"></i>
+            </div>
+            <h4 class="font-semibold text-ink text-sm">CSS3</h4>
+          </div>
+          <div class="skill-card bg-soft rounded-2xl p-5 text-center border border-slate-100">
+            <div class="w-12 h-12 mx-auto mb-3 bg-yellow-100 rounded-xl flex items-center justify-center">
+              <i class="fab fa-js text-xl text-yellow-500"></i>
+            </div>
+            <h4 class="font-semibold text-ink text-sm">JavaScript</h4>
+          </div>
+          <div class="skill-card bg-soft rounded-2xl p-5 text-center border border-slate-100">
+            <div class="w-12 h-12 mx-auto mb-3 bg-purple-100 rounded-xl flex items-center justify-center">
+              <i class="fab fa-bootstrap text-xl text-purple-600"></i>
+            </div>
+            <h4 class="font-semibold text-ink text-sm">Bootstrap</h4>
+          </div>
+          <div class="skill-card bg-soft rounded-2xl p-5 text-center border border-slate-100">
+            <div class="w-12 h-12 mx-auto mb-3 bg-sky-100 rounded-xl flex items-center justify-center">
+              <i class="fas fa-wind text-xl text-sky-500"></i>
+            </div>
+            <h4 class="font-semibold text-ink text-sm">Tailwind CSS</h4>
+          </div>
         </div>
-        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
-          <div class="w-14 h-14 mx-auto mb-4 bg-red-100 rounded-xl flex items-center justify-center">
-            <i class="fab fa-laravel text-2xl text-red-500"></i>
+      </div>
+
+      <div>
+        <h3 class="font-display text-lg font-semibold text-ink mb-6 flex items-center gap-2.5">
+          <span class="w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center">
+            <i class="fas fa-server text-emerald-500"></i>
+          </span>
+          Backend & Databases
+        </h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+          <div class="skill-card bg-soft rounded-2xl p-5 text-center border border-slate-100">
+            <div class="w-12 h-12 mx-auto mb-3 bg-indigo-100 rounded-xl flex items-center justify-center">
+              <i class="fab fa-php text-xl text-indigo-500"></i>
+            </div>
+            <h4 class="font-semibold text-ink text-sm">PHP</h4>
           </div>
-          <h3 class="font-semibold text-ink">Laravel</h3>
-        </div>
-        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
-          <div class="w-14 h-14 mx-auto mb-4 bg-green-100 rounded-xl flex items-center justify-center">
-            <i class="fas fa-leaf text-2xl text-green-600"></i>
+          <div class="skill-card bg-soft rounded-2xl p-5 text-center border border-slate-100">
+            <div class="w-12 h-12 mx-auto mb-3 bg-red-100 rounded-xl flex items-center justify-center">
+              <i class="fab fa-laravel text-xl text-red-500"></i>
+            </div>
+            <h4 class="font-semibold text-ink text-sm">Laravel</h4>
           </div>
-          <h3 class="font-semibold text-ink">Django</h3>
-        </div>
-        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
-          <div class="w-14 h-14 mx-auto mb-4 bg-blue-100 rounded-xl flex items-center justify-center">
-            <i class="fas fa-database text-2xl text-blue-600"></i>
+          <div class="skill-card bg-soft rounded-2xl p-5 text-center border border-slate-100">
+            <div class="w-12 h-12 mx-auto mb-3 bg-green-100 rounded-xl flex items-center justify-center">
+              <i class="fas fa-leaf text-xl text-green-600"></i>
+            </div>
+            <h4 class="font-semibold text-ink text-sm">Django</h4>
           </div>
-          <h3 class="font-semibold text-ink">SQL / MySQL</h3>
-          <p class="text-xs text-slate-500 mt-1">Core Strength</p>
-        </div>
-        <div class="skill-card bg-soft rounded-2xl p-6 text-center border border-slate-100">
-          <div class="w-14 h-14 mx-auto mb-4 bg-slate-100 rounded-xl flex items-center justify-center">
-            <i class="fab fa-git-alt text-2xl text-slate-700"></i>
+          <div class="skill-card bg-soft rounded-2xl p-5 text-center border border-slate-100">
+            <div class="w-12 h-12 mx-auto mb-3 bg-blue-100 rounded-xl flex items-center justify-center">
+              <i class="fas fa-database text-xl text-blue-600"></i>
+            </div>
+            <h4 class="font-semibold text-ink text-sm">SQL / MySQL</h4>
+            <p class="text-[11px] text-slate-500 mt-0.5">Core Strength</p>
           </div>
-          <h3 class="font-semibold text-ink">Git / GitHub</h3>
+          <div class="skill-card bg-soft rounded-2xl p-5 text-center border border-slate-100">
+            <div class="w-12 h-12 mx-auto mb-3 bg-slate-100 rounded-xl flex items-center justify-center">
+              <i class="fab fa-git-alt text-xl text-slate-700"></i>
+            </div>
+            <h4 class="font-semibold text-ink text-sm">Git / GitHub</h4>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Featured Work -->
-  <section id="work" class="py-24 bg-soft">
+  <!-- Work -->
+  <section id="work" class="py-24 md:py-28 bg-soft">
     <div class="max-w-6xl mx-auto px-5">
       <div class="text-center mb-16">
         <p class="text-accent font-semibold text-sm tracking-widest uppercase mb-3">Selected Work</p>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold text-ink">Featured Projects</h2>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-ink section-title">Featured Projects</h2>
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         
-        <div class="project-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
-          <div class="bg-gradient-to-br from-ink via-ink-light to-blue-900 p-8">
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <span class="inline-block bg-accent/20 text-accent-glow text-xs font-semibold px-3 py-1 rounded-full mb-4">
-                  Healthcare • Data • Intelligence
-                </span>
-                <h3 class="font-display text-2xl font-bold text-white mb-2">PHIP</h3>
-                <p class="text-slate-300">Patient History Intelligence Platform</p>
-              </div>
-              <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0">
-                <i class="fas fa-notes-medical text-2xl text-white"></i>
-              </div>
+        <div class="project-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm">
+          <div class="bg-gradient-to-br from-ink via-ink-soft to-blue-950 p-8 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-40 h-40 bg-blue-500/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            <div class="relative">
+              <span class="inline-block bg-blue-500/20 text-blue-300 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                Healthcare • Data • Intelligence
+              </span>
+              <h3 class="font-display text-2xl font-bold text-white mb-1">PHIP</h3>
+              <p class="text-slate-400 text-sm">Patient History Intelligence Platform</p>
             </div>
           </div>
           
-          <div class="p-8">
-            <p class="text-slate-600 leading-relaxed mb-6">
-              An intelligent system to manage, structure and analyze patient medical history. 
-              Strong SQL foundations for fast, reliable insights. Includes AI chatbot features and interactive data visualization.
+          <div class="p-7">
+            <p class="text-slate-600 text-[15px] leading-relaxed mb-6">
+              Intelligent system to manage, structure and analyze patient medical history. 
+              Strong SQL foundations with AI chatbot features and interactive data visualization.
             </p>
             
             <div class="flex flex-wrap gap-2 mb-6">
-              <span class="text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-full">Python</span>
-              <span class="text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-full">Django</span>
-              <span class="text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-full">SQL</span>
-              <span class="text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-full">JavaScript</span>
-              <span class="text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-full">AI Chatbot</span>
+              <span class="text-xs font-medium bg-slate-100 text-slate-600 px-3 py-1 rounded-full">Python</span>
+              <span class="text-xs font-medium bg-slate-100 text-slate-600 px-3 py-1 rounded-full">Django</span>
+              <span class="text-xs font-medium bg-slate-100 text-slate-600 px-3 py-1 rounded-full">SQL</span>
+              <span class="text-xs font-medium bg-slate-100 text-slate-600 px-3 py-1 rounded-full">JavaScript</span>
+              <span class="text-xs font-medium bg-slate-100 text-slate-600 px-3 py-1 rounded-full">AI Chatbot</span>
             </div>
             
             <a href="https://github.com/afaqahmad08/PHIP-PATIENT-HISTORY-INTELLIGENCE-PLATFORM-" target="_blank"
-               class="inline-flex items-center gap-2 text-accent font-semibold hover:underline">
+               class="inline-flex items-center gap-2 text-accent font-semibold text-sm hover:gap-3 transition-all">
               <i class="fab fa-github"></i> View on GitHub
+              <i class="fas fa-arrow-right text-xs"></i>
             </a>
           </div>
         </div>
 
-        <div class="project-card bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm">
-          <div class="bg-gradient-to-br from-ink via-ink-light to-indigo-900 p-8">
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <span class="inline-block bg-indigo-400/20 text-indigo-300 text-xs font-semibold px-3 py-1 rounded-full mb-4">
-                  Frontend • Design • UI
-                </span>
-                <h3 class="font-display text-2xl font-bold text-white mb-2">Personal Portfolio</h3>
-                <p class="text-slate-300">Modern responsive web portfolio</p>
-              </div>
-              <div class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center shrink-0">
-                <i class="fas fa-laptop-code text-2xl text-white"></i>
-              </div>
+        <div class="project-card bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-sm">
+          <div class="bg-gradient-to-br from-ink via-ink-soft to-indigo-950 p-8 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-40 h-40 bg-indigo-500/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            <div class="relative">
+              <span class="inline-block bg-indigo-500/20 text-indigo-300 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                Frontend • Design • UI
+              </span>
+              <h3 class="font-display text-2xl font-bold text-white mb-1">Personal Portfolio</h3>
+              <p class="text-slate-400 text-sm">Modern responsive web portfolio</p>
             </div>
           </div>
           
-          <div class="p-8">
-            <p class="text-slate-600 leading-relaxed mb-6">
+          <div class="p-7">
+            <p class="text-slate-600 text-[15px] leading-relaxed mb-6">
               Clean, modern portfolio website built with HTML, Tailwind CSS and JavaScript. 
-              Fully responsive design with smooth animations, dark hero section and professional project showcase.
+              Fully responsive with smooth animations and professional project showcase.
             </p>
             
             <div class="flex flex-wrap gap-2 mb-6">
-              <span class="text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-full">HTML5</span>
-              <span class="text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-full">Tailwind CSS</span>
-              <span class="text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-full">JavaScript</span>
-              <span class="text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-full">Responsive</span>
+              <span class="text-xs font-medium bg-slate-100 text-slate-600 px-3 py-1 rounded-full">HTML5</span>
+              <span class="text-xs font-medium bg-slate-100 text-slate-600 px-3 py-1 rounded-full">Tailwind CSS</span>
+              <span class="text-xs font-medium bg-slate-100 text-slate-600 px-3 py-1 rounded-full">JavaScript</span>
+              <span class="text-xs font-medium bg-slate-100 text-slate-600 px-3 py-1 rounded-full">Responsive</span>
             </div>
             
             <a href="https://github.com/afaqahmad08/Portfolio-" target="_blank"
-               class="inline-flex items-center gap-2 text-accent font-semibold hover:underline">
+               class="inline-flex items-center gap-2 text-accent font-semibold text-sm hover:gap-3 transition-all">
               <i class="fab fa-github"></i> View on GitHub
+              <i class="fas fa-arrow-right text-xs"></i>
             </a>
           </div>
         </div>
 
       </div>
 
-      <p class="text-center text-slate-500 text-sm mt-10">
-        More AI/ML and frontend projects coming soon. Check my 
-        <a href="https://github.com/afaqahmad08" target="_blank" class="text-accent hover:underline">GitHub</a> for latest work.
+      <p class="text-center text-slate-500 text-sm mt-12">
+        More projects coming soon · 
+        <a href="https://github.com/afaqahmad08" target="_blank" class="text-accent hover:underline font-medium">GitHub</a>
       </p>
     </div>
   </section>
 
   <!-- About -->
-  <section id="about" class="py-24 bg-white">
+  <section id="about" class="py-24 md:py-28 bg-white">
     <div class="max-w-3xl mx-auto px-5 text-center">
       <p class="text-accent font-semibold text-sm tracking-widest uppercase mb-3">About</p>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-ink mb-8">A bit about me</h2>
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-ink section-title mb-10">A bit about me</h2>
       
-      <p class="text-slate-600 text-lg leading-relaxed mb-6">
-        I'm <strong>Afaq Ahmed Khan</strong> — a BS Information Technology graduate from UMT Lahore who enjoys 
-        building intelligent systems and clean user interfaces.
+      <p class="text-slate-600 text-lg leading-relaxed mb-5">
+        I'm <strong class="text-ink">Afaq Ahmed Khan</strong> — a BS Information Technology graduate from UMT Lahore 
+        who enjoys building intelligent systems and clean user interfaces.
       </p>
-      <p class="text-slate-600 text-lg leading-relaxed mb-8">
-        My focus areas are <strong>AI/ML with Python</strong>, modern <strong>frontend development</strong>, 
-        and solid full-stack foundations (Laravel, Django, SQL). I believe great products start with good data structure 
-        and thoughtful UI — and I'm always learning new tools to improve both.
+      <p class="text-slate-600 text-lg leading-relaxed mb-10">
+        My focus areas are <strong class="text-ink">AI/ML with Python</strong>, modern <strong class="text-ink">frontend development</strong>, 
+        and solid full-stack foundations. I believe great products start with good data structure and thoughtful UI.
       </p>
       
       <div class="flex flex-wrap justify-center gap-3">
-        <span class="bg-soft text-ink font-medium px-4 py-2 rounded-full text-sm">AI / ML Enthusiast</span>
-        <span class="bg-soft text-ink font-medium px-4 py-2 rounded-full text-sm">Frontend Developer</span>
-        <span class="bg-soft text-ink font-medium px-4 py-2 rounded-full text-sm">Full-Stack</span>
-        <span class="bg-soft text-ink font-medium px-4 py-2 rounded-full text-sm">Problem Solver</span>
+        <span class="bg-soft text-ink font-medium px-5 py-2.5 rounded-full text-sm border border-slate-100">AI / ML Enthusiast</span>
+        <span class="bg-soft text-ink font-medium px-5 py-2.5 rounded-full text-sm border border-slate-100">Frontend Developer</span>
+        <span class="bg-soft text-ink font-medium px-5 py-2.5 rounded-full text-sm border border-slate-100">Full-Stack</span>
+        <span class="bg-soft text-ink font-medium px-5 py-2.5 rounded-full text-sm border border-slate-100">Problem Solver</span>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-24 bg-ink">
-    <div class="max-w-3xl mx-auto px-5 text-center">
+  <section id="contact" class="py-24 md:py-28 bg-ink relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(59,130,246,0.12),_transparent_60%)]"></div>
+    
+    <div class="max-w-3xl mx-auto px-5 text-center relative z-10">
       <p class="text-accent font-semibold text-sm tracking-widest uppercase mb-3">Contact</p>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-6">Let's build something</h2>
-      <p class="text-slate-400 text-lg mb-10">
+      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-5">Let's build something</h2>
+      <p class="text-slate-400 text-lg mb-12 max-w-md mx-auto">
         Open to AI/ML internships, frontend roles, full-time opportunities and interesting collaborations.
       </p>
       
       <div class="flex flex-wrap justify-center gap-4">
         <a href="mailto:afaqahmad0817@gmail.com" 
-           class="inline-flex items-center gap-2 bg-accent hover:bg-accent-glow text-white font-semibold px-6 py-3.5 rounded-xl transition">
+           class="inline-flex items-center gap-2.5 btn-primary text-white font-semibold px-7 py-3.5 rounded-xl">
           <i class="fas fa-envelope"></i> Email Me
         </a>
         <a href="https://wa.me/923190617290" target="_blank"
-           class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 border border-white/10 text-white font-semibold px-6 py-3.5 rounded-xl transition">
-          <i class="fab fa-whatsapp"></i> WhatsApp
+           class="inline-flex items-center gap-2.5 glass hover:bg-white/10 text-white font-semibold px-6 py-3.5 rounded-xl transition">
+          <i class="fab fa-whatsapp text-lg"></i> WhatsApp
         </a>
         <a href="https://www.linkedin.com/in/afaq-ahmed-khan-16b746307" target="_blank"
-           class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 border border-white/10 text-white font-semibold px-6 py-3.5 rounded-xl transition">
-          <i class="fab fa-linkedin"></i> LinkedIn
+           class="inline-flex items-center gap-2.5 glass hover:bg-white/10 text-white font-semibold px-6 py-3.5 rounded-xl transition">
+          <i class="fab fa-linkedin text-lg"></i> LinkedIn
         </a>
       </div>
     </div>
@@ -452,8 +508,9 @@
 
   <!-- Footer -->
   <footer class="bg-ink border-t border-white/5 py-8">
-    <div class="max-w-6xl mx-auto px-5 text-center text-slate-500 text-sm">
-      <p>© 2026 Afaq Ahmed Khan. Built with HTML, Tailwind CSS & JavaScript.</p>
+    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-sm">
+      <p>© 2026 Afaq Ahmed Khan</p>
+      <p class="text-slate-600">Built with HTML, Tailwind CSS & JavaScript</p>
     </div>
   </footer>
 
