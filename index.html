@@ -1,343 +1,1199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Afaq Ahmed Khan | Game Development • Unity • Frontend • Backend</title>
-  <meta name="description" content="Afaq Ahmed Khan — BS IT graduate from UMT Lahore. Interested in Unity Game Development, Frontend, Backend and AI/ML. Seeking Unity Developer Internship." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Afaq Ahmed Khan — BS IT Graduate, Unity Game Developer, Frontend & Backend Developer">
+  <title>Afaq Ahmed Khan | Unity Developer</title>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            display: ['Poppins', 'sans-serif'],
+            sans: ["Inter", "sans-serif"],
+            display: ["Poppins", "sans-serif"]
           },
           colors: {
-            dark: '#0f172a',
-            primary: '#6366f1',
-            secondary: '#8b5cf6',
-            accent: '#06b6d4',
-            soft: '#f1f5f9',
+            ink: "#080b14",
+            panel: "#101522",
+            violet: "#8b5cf6",
+            cyanx: "#22d3ee"
           }
         }
       }
     }
   </script>
+
   <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; }
-    .font-display { font-family: 'Poppins', sans-serif; }
-    
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #080b14;
+      color: #e5e7eb;
+    }
+
+    .font-display {
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* Background grid */
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black 35%, transparent 100%);
+    }
+
+    /* Hero glow */
+    .aurora {
+      background:
+        radial-gradient(circle at 80% 20%, rgba(139,92,246,.25), transparent 28%),
+        radial-gradient(circle at 20% 70%, rgba(34,211,238,.12), transparent 28%);
+    }
+
+    /* Gradient heading */
     .gradient-text {
-      background: linear-gradient(135deg, #818cf8 0%, #6366f1 40%, #06b6d4 100%);
+      background: linear-gradient(
+        100deg,
+        #ffffff 0%,
+        #c4b5fd 45%,
+        #67e8f9 100%
+      );
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       background-clip: text;
+      color: transparent;
     }
-    
-    .hero-gradient {
-      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+
+    /* Glass */
+    .glass {
+      background: rgba(16,21,34,.65);
+      border: 1px solid rgba(255,255,255,.09);
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+      backdrop-filter: blur(18px);
     }
-    
-    .card-hover {
-      transition: all 0.3s ease;
+
+    .nav-glass {
+      background: rgba(8,11,20,.80);
+      backdrop-filter: blur(18px);
     }
-    .card-hover:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px -10px rgba(99, 102, 241, 0.25);
-    }
-    
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #6366f1;
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after { width: 100%; }
-    
+
+    /* Main button */
     .btn-main {
-      background: linear-gradient(135deg, #6366f1, #8b5cf6);
-      transition: all 0.3s ease;
+      background: linear-gradient(135deg,#8b5cf6,#6366f1);
+      box-shadow: 0 10px 35px rgba(139,92,246,.25);
+      transition: .3s ease;
     }
+
     .btn-main:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(139,92,246,.40);
+    }
+
+    /* Secondary buttons */
+    .btn-soft {
+      transition: .3s ease;
+    }
+
+    .btn-soft:hover {
+      transform: translateY(-3px);
+      border-color: rgba(139,92,246,.55);
+      background: rgba(139,92,246,.10);
+    }
+
+    /* Profile */
+    .profile-wrap {
+      transition: .5s ease;
+    }
+
+    .profile-wrap:hover {
+      transform: translateY(-8px) rotate(1deg);
+    }
+
+    .profile-wrap img {
+      transition: .5s ease;
+    }
+
+    .profile-wrap:hover img {
+      transform: scale(1.035);
+      filter: saturate(1.15);
+    }
+
+    /* Cards */
+    .card {
+      transition: .35s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(139,92,246,.35);
+      box-shadow: 0 24px 55px rgba(0,0,0,.28);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Floating icons */
+    .orb {
+      animation: float 7s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-18px);
+      }
+    }
+
+    /* Gradient line */
+    .line {
+      background: linear-gradient(
+        90deg,
+        #8b5cf6,
+        #22d3ee,
+        transparent
+      );
+    }
+
+    ::selection {
+      background: #8b5cf6;
+      color: white;
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
 
-  <!-- Navbar -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-dark/95 backdrop-blur-lg border-b border-white/5">
-    <div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
-      <a href="#home" class="font-display font-bold text-white text-xl">
-        Afaq<span class="text-primary">.</span>
+<body class="overflow-x-hidden">
+
+  <!-- Background -->
+  <div class="fixed inset-0 grid-bg pointer-events-none"></div>
+
+
+  <!-- ================= NAVBAR ================= -->
+
+  <header class="fixed top-0 left-0 right-0 z-50 nav-glass border-b border-white/5">
+
+    <nav class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#home"
+         class="font-display text-xl font-bold text-white">
+        Afaq<span class="text-violet-400">.</span>
       </a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400">
-        <a href="#skills" class="nav-link relative hover:text-white transition">Skills</a>
-        <a href="#work" class="nav-link relative hover:text-white transition">Projects</a>
-        <a href="#about" class="nav-link relative hover:text-white transition">About</a>
-        <a href="#contact" class="nav-link relative hover:text-white transition">Contact</a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center gap-8 text-sm text-slate-400">
+
+        <a href="#home"
+           class="hover:text-white transition">
+          Home
+        </a>
+
+        <a href="#skills"
+           class="hover:text-white transition">
+          Skills
+        </a>
+
+        <a href="#projects"
+           class="hover:text-white transition">
+          Projects
+        </a>
+
+        <a href="#about"
+           class="hover:text-white transition">
+          About
+        </a>
+
+        <a href="#contact"
+           class="hover:text-white transition">
+          Contact
+        </a>
+
       </div>
-      <a href="https://wa.me/923190617290" target="_blank" 
-         class="text-xs font-semibold btn-main text-white px-5 py-2.5 rounded-full">
-        Contact Me
-      </a>
-    </div>
-  </nav>
 
-  <!-- Hero -->
-  <section id="home" class="hero-gradient min-h-screen flex items-center pt-24 pb-16">
-    <div class="max-w-6xl mx-auto px-5 w-full">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        
-        <div class="text-center lg:text-left order-2 lg:order-1">
-          <div class="inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-full px-4 py-1.5 mb-6">
-            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-            <span class="text-slate-300 text-sm">Available for Unity Internship</span>
+      <!-- Contact -->
+      <a href="mailto:afaqahmad0817@gmail.com"
+         class="hidden sm:inline-flex btn-main text-white text-sm font-semibold px-5 py-2.5 rounded-full">
+
+        Let's Talk
+
+        <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs"></i>
+
+      </a>
+
+      <!-- Mobile button -->
+      <button id="menuBtn"
+              class="md:hidden text-white text-xl"
+              aria-label="Open menu">
+
+        <i class="fa-solid fa-bars"></i>
+
+      </button>
+
+    </nav>
+
+
+    <!-- Mobile menu -->
+
+    <div id="mobileMenu"
+         class="hidden md:hidden px-5 pb-5">
+
+      <div class="glass rounded-2xl p-5 flex flex-col gap-4 text-slate-300">
+
+        <a href="#home">Home</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- ================= HERO ================= -->
+
+  <main id="home"
+        class="relative aurora min-h-screen pt-32 pb-20">
+
+    <div class="max-w-6xl mx-auto px-5">
+
+      <div class="grid lg:grid-cols-[1.15fr_.85fr] gap-14 items-center min-h-[78vh]">
+
+
+        <!-- Hero Text -->
+
+        <section class="order-2 lg:order-1 reveal">
+
+          <!-- Status -->
+
+          <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-7 text-sm text-slate-300">
+
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+
+            Available for Unity Developer Internship
+
           </div>
-          
-          <h1 class="font-display text-4xl sm:text-5xl font-bold text-white leading-tight mb-5">
-            Game Development<br>
-            <span class="gradient-text">Unity • C# • Frontend</span>
-          </h1>
-          
-          <p class="text-slate-400 text-lg max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed">
-            Fresh BS IT graduate from UMT Lahore. Strong programming fundamentals with high motivation to learn and contribute in <strong class="text-white">Unity Game Development</strong>. Fast learner and ready to work hard.
+
+
+          <p class="text-violet-300 font-semibold tracking-[.22em] uppercase text-xs mb-4">
+
+            BS Information Technology • UMT Lahore
+
           </p>
-          
-          <div class="flex flex-wrap justify-center lg:justify-start gap-3">
-            <a href="#work" class="btn-main text-white font-semibold px-6 py-3 rounded-xl inline-flex items-center gap-2">
-              My Projects <i class="fas fa-arrow-right text-sm"></i>
-            </a>
-            <a href="https://github.com/afaqahmad08" target="_blank" 
-               class="bg-white/10 hover:bg-white/15 border border-white/10 text-white font-semibold px-5 py-3 rounded-xl inline-flex items-center gap-2 transition">
-              <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/afaq-ahmed-khan-16b746307" target="_blank" 
-               class="bg-white/10 hover:bg-white/15 border border-white/10 text-white font-semibold px-5 py-3 rounded-xl inline-flex items-center gap-2 transition">
-              <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-          </div>
-          
-          <div class="mt-10 flex flex-wrap justify-center lg:justify-start gap-3">
-            <span class="bg-indigo-500/20 text-indigo-300 text-sm font-medium px-4 py-1.5 rounded-full border border-indigo-500/30">Unity</span>
-            <span class="bg-violet-500/20 text-violet-300 text-sm font-medium px-4 py-1.5 rounded-full border border-violet-500/30">C#</span>
-            <span class="bg-cyan-500/20 text-cyan-300 text-sm font-medium px-4 py-1.5 rounded-full border border-cyan-500/30">Game Dev</span>
-            <span class="bg-emerald-500/20 text-emerald-300 text-sm font-medium px-4 py-1.5 rounded-full border border-emerald-500/30">Frontend</span>
-          </div>
-        </div>
-        
-        <div class="order-1 lg:order-2 flex justify-center">
-          <div class="relative">
-            <div class="absolute -inset-4 bg-gradient-to-br from-indigo-500/30 to-cyan-500/20 rounded-full blur-2xl"></div>
-            <img src="profile.jpg" alt="Afaq Ahmed Khan" 
-                 class="relative w-64 h-64 sm:w-72 sm:h-72 rounded-full object-cover border-4 border-white/20 shadow-2xl" />
-            <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-dark/90 border border-white/10 rounded-xl px-5 py-2.5 shadow-xl">
-              <p class="font-display font-semibold text-white text-sm text-center">Afaq Ahmed Khan</p>
-              <p class="text-indigo-300 text-xs text-center">Unity • Game Dev • Frontend</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Skills -->
-  <section id="skills" class="py-20 bg-white">
+
+          <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.04] tracking-tight mb-6">
+
+            Building ideas into
+
+            <span class="gradient-text">
+              digital experiences.
+            </span>
+
+          </h1>
+
+
+          <p class="text-slate-400 text-lg sm:text-xl leading-relaxed max-w-2xl mb-8">
+
+            I'm
+
+            <strong class="text-white">
+              Afaq Ahmed Khan
+            </strong>,
+
+            a fresh BS IT graduate focused on
+
+            <strong class="text-violet-300">
+              Unity Game Development
+            </strong>,
+
+            C#, Frontend and Backend development.
+
+            I learn fast, solve problems and love turning concepts into working products.
+
+          </p>
+
+
+          <!-- Buttons -->
+
+          <div class="flex flex-wrap gap-3 mb-10">
+
+            <a href="#projects"
+               class="btn-main px-6 py-3.5 rounded-xl font-semibold text-white">
+
+              Explore My Work
+
+              <i class="fa-solid fa-arrow-right ml-2"></i>
+
+            </a>
+
+
+            <a href="https://github.com/afaqahmad08"
+               target="_blank"
+               rel="noopener"
+               class="btn-soft glass px-5 py-3.5 rounded-xl font-semibold text-white">
+
+              <i class="fa-brands fa-github mr-2"></i>
+
+              GitHub
+
+            </a>
+
+
+            <a href="https://www.linkedin.com/in/afaq-ahmed-khan-16b746307"
+               target="_blank"
+               rel="noopener"
+               class="btn-soft glass px-5 py-3.5 rounded-xl font-semibold text-white">
+
+              <i class="fa-brands fa-linkedin mr-2"></i>
+
+              LinkedIn
+
+            </a>
+
+          </div>
+
+
+          <!-- Tech tags -->
+
+          <div class="flex flex-wrap gap-2 text-xs font-medium text-slate-300">
+
+            <span class="glass px-3 py-2 rounded-lg">
+              Unity
+            </span>
+
+            <span class="glass px-3 py-2 rounded-lg">
+              C#
+            </span>
+
+            <span class="glass px-3 py-2 rounded-lg">
+              Python
+            </span>
+
+            <span class="glass px-3 py-2 rounded-lg">
+              Django
+            </span>
+
+            <span class="glass px-3 py-2 rounded-lg">
+              JavaScript
+            </span>
+
+          </div>
+
+        </section>
+
+
+
+        <!-- Profile -->
+
+        <section class="order-1 lg:order-2 flex justify-center lg:justify-end reveal">
+
+          <div class="profile-wrap relative w-72 sm:w-80">
+
+            <!-- Glow -->
+
+            <div class="absolute -inset-8 bg-gradient-to-r from-violet-600/25 to-cyan-400/20 blur-3xl rounded-full"></div>
+
+
+            <!-- Floating Code -->
+
+            <div class="absolute -top-7 -right-5 orb glass w-16 h-16 rounded-2xl flex items-center justify-center text-cyan-300 text-2xl">
+
+              <i class="fa-solid fa-code"></i>
+
+            </div>
+
+
+            <!-- Floating Game -->
+
+            <div class="absolute -bottom-7 -left-5 orb glass w-16 h-16 rounded-2xl flex items-center justify-center text-violet-300 text-2xl"
+                 style="animation-delay:-2s">
+
+              <i class="fa-solid fa-gamepad"></i>
+
+            </div>
+
+
+            <!-- Image -->
+
+            <div class="relative glass rounded-[2rem] p-3">
+
+              <img src="profile.jpg"
+                   alt="Afaq Ahmed Khan"
+                   class="w-full aspect-square object-cover rounded-[1.5rem] border border-white/10">
+
+            </div>
+
+
+            <!-- Name Card -->
+
+            <div class="absolute -bottom-8 left-1/2 -translate-x-1/2 glass rounded-2xl px-5 py-3 min-w-[220px] text-center">
+
+              <p class="font-display font-bold text-white">
+                Afaq Ahmed Khan
+              </p>
+
+              <p class="text-xs text-violet-300 mt-1">
+                Unity • Game Dev • Web
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+
+  <!-- ================= SKILLS ================= -->
+
+  <section id="skills"
+           class="relative py-24 border-t border-white/5">
+
     <div class="max-w-6xl mx-auto px-5">
-      <div class="text-center mb-14">
-        <p class="text-primary font-semibold text-sm uppercase tracking-wider mb-2">My Skills</p>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold text-dark">Areas I'm Focused On</h2>
-      </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <!-- Game Development Card (NEW) -->
-        <div class="card-hover bg-gradient-to-br from-purple-50 to-white rounded-2xl p-6 border border-purple-100">
-          <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mb-5">
-            <i class="fas fa-gamepad text-2xl text-purple-600"></i>
-          </div>
-          <h3 class="font-display font-bold text-dark text-lg mb-2">Game Development</h3>
-          <p class="text-slate-600 text-sm mb-4">Learning Unity Engine, C# scripting, 2D/3D gameplay & optimization</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-purple-100 text-purple-700 px-2.5 py-1 rounded-full">Unity</span>
-            <span class="text-xs bg-purple-100 text-purple-700 px-2.5 py-1 rounded-full">C#</span>
-            <span class="text-xs bg-purple-100 text-purple-700 px-2.5 py-1 rounded-full">2D/3D</span>
-            <span class="text-xs bg-purple-100 text-purple-700 px-2.5 py-1 rounded-full">Game Logic</span>
-          </div>
-        </div>
+      <div class="reveal mb-12">
 
-        <div class="card-hover bg-gradient-to-br from-indigo-50 to-white rounded-2xl p-6 border border-indigo-100">
-          <div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center mb-5">
-            <i class="fas fa-laptop-code text-2xl text-indigo-600"></i>
-          </div>
-          <h3 class="font-display font-bold text-dark text-lg mb-2">Frontend</h3>
-          <p class="text-slate-600 text-sm mb-4">UI banane aur user experience improve karne mein interest</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-indigo-100 text-indigo-700 px-2.5 py-1 rounded-full">HTML5</span>
-            <span class="text-xs bg-indigo-100 text-indigo-700 px-2.5 py-1 rounded-full">CSS3</span>
-            <span class="text-xs bg-indigo-100 text-indigo-700 px-2.5 py-1 rounded-full">JavaScript</span>
-            <span class="text-xs bg-indigo-100 text-indigo-700 px-2.5 py-1 rounded-full">Tailwind</span>
-          </div>
-        </div>
+        <p class="text-violet-300 text-sm font-semibold uppercase tracking-[.2em]">
+          01 — Expertise
+        </p>
 
-        <div class="card-hover bg-gradient-to-br from-violet-50 to-white rounded-2xl p-6 border border-violet-100">
-          <div class="w-14 h-14 bg-violet-100 rounded-2xl flex items-center justify-center mb-5">
-            <i class="fas fa-server text-2xl text-violet-600"></i>
-          </div>
-          <h3 class="font-display font-bold text-dark text-lg mb-2">Backend</h3>
-          <p class="text-slate-600 text-sm mb-4">Server side logic, APIs aur databases ke sath kaam</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-violet-100 text-violet-700 px-2.5 py-1 rounded-full">Python</span>
-            <span class="text-xs bg-violet-100 text-violet-700 px-2.5 py-1 rounded-full">Django</span>
-            <span class="text-xs bg-violet-100 text-violet-700 px-2.5 py-1 rounded-full">PHP</span>
-            <span class="text-xs bg-violet-100 text-violet-700 px-2.5 py-1 rounded-full">MySQL</span>
-          </div>
-        </div>
+        <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mt-3">
+          What I work with.
+        </h2>
 
-        <div class="card-hover bg-gradient-to-br from-cyan-50 to-white rounded-2xl p-6 border border-cyan-100">
-          <div class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center mb-5">
-            <i class="fas fa-brain text-2xl text-cyan-600"></i>
-          </div>
-          <h3 class="font-display font-bold text-dark text-lg mb-2">AI / ML</h3>
-          <p class="text-slate-600 text-sm mb-4">Machine learning, data analysis aur intelligent systems</p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs bg-cyan-100 text-cyan-700 px-2.5 py-1 rounded-full">Python</span>
-            <span class="text-xs bg-cyan-100 text-cyan-700 px-2.5 py-1 rounded-full">Pandas</span>
-            <span class="text-xs bg-cyan-100 text-cyan-700 px-2.5 py-1 rounded-full">NumPy</span>
-            <span class="text-xs bg-cyan-100 text-cyan-700 px-2.5 py-1 rounded-full">scikit-learn</span>
-          </div>
-        </div>
+        <div class="line h-px w-40 mt-5"></div>
 
       </div>
+
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+
+        <!-- Unity -->
+
+        <article class="card glass rounded-2xl p-6 reveal">
+
+          <div class="w-12 h-12 rounded-xl bg-violet-500/15 text-violet-300 flex items-center justify-center text-xl mb-5">
+
+            <i class="fa-solid fa-gamepad"></i>
+
+          </div>
+
+          <h3 class="font-display font-bold text-xl text-white mb-2">
+            Unity & Game Dev
+          </h3>
+
+          <p class="text-slate-400 text-sm leading-6">
+
+            Unity Engine, C#, gameplay logic and 2D/3D development.
+
+          </p>
+
+          <div class="mt-5 flex flex-wrap gap-2">
+
+            <span class="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1">
+              Unity
+            </span>
+
+            <span class="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1">
+              C#
+            </span>
+
+            <span class="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1">
+              2D/3D
+            </span>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- Frontend -->
+
+        <article class="card glass rounded-2xl p-6 reveal">
+
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/15 text-cyan-300 flex items-center justify-center text-xl mb-5">
+
+            <i class="fa-solid fa-laptop-code"></i>
+
+          </div>
+
+          <h3 class="font-display font-bold text-xl text-white mb-2">
+            Frontend
+          </h3>
+
+          <p class="text-slate-400 text-sm leading-6">
+
+            Responsive interfaces with clean UI and modern web technologies.
+
+          </p>
+
+          <div class="mt-5 flex flex-wrap gap-2">
+
+            <span class="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1">
+              HTML
+            </span>
+
+            <span class="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1">
+              CSS
+            </span>
+
+            <span class="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1">
+              JavaScript
+            </span>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- Backend -->
+
+        <article class="card glass rounded-2xl p-6 reveal">
+
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/15 text-indigo-300 flex items-center justify-center text-xl mb-5">
+
+            <i class="fa-solid fa-server"></i>
+
+          </div>
+
+          <h3 class="font-display font-bold text-xl text-white mb-2">
+            Backend
+          </h3>
+
+          <p class="text-slate-400 text-sm leading-6">
+
+            Server-side development, APIs, databases and application logic.
+
+          </p>
+
+          <div class="mt-5 flex flex-wrap gap-2">
+
+            <span class="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1">
+              Python
+            </span>
+
+            <span class="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1">
+              Django
+            </span>
+
+            <span class="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1">
+              SQL
+            </span>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- AI -->
+
+        <article class="card glass rounded-2xl p-6 reveal">
+
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-300 flex items-center justify-center text-xl mb-5">
+
+            <i class="fa-solid fa-brain"></i>
+
+          </div>
+
+          <h3 class="font-display font-bold text-xl text-white mb-2">
+            AI / Data
+          </h3>
+
+          <p class="text-slate-400 text-sm leading-6">
+
+            Python-based data handling and foundations of intelligent systems.
+
+          </p>
+
+          <div class="mt-5 flex flex-wrap gap-2">
+
+            <span class="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1">
+              Python
+            </span>
+
+            <span class="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1">
+              Pandas
+            </span>
+
+            <span class="text-xs bg-white/5 border border-white/10 rounded-full px-3 py-1">
+              NumPy
+            </span>
+
+          </div>
+
+        </article>
+
+      </div>
+
     </div>
+
   </section>
 
-  <!-- Projects -->
-  <section id="work" class="py-20 bg-soft">
+
+
+  <!-- ================= PROJECTS ================= -->
+
+  <section id="projects"
+           class="relative py-24 bg-white/[.025] border-y border-white/5">
+
     <div class="max-w-6xl mx-auto px-5">
-      <div class="text-center mb-14">
-        <p class="text-primary font-semibold text-sm uppercase tracking-wider mb-2">Projects</p>
-        <h2 class="font-display text-3xl sm:text-4xl font-bold text-dark">My Work</h2>
+
+      <div class="reveal mb-12">
+
+        <p class="text-cyan-300 text-sm font-semibold uppercase tracking-[.2em]">
+          02 — Selected Work
+        </p>
+
+        <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mt-3">
+          Projects that matter.
+        </h2>
+
+        <div class="line h-px w-40 mt-5"></div>
+
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        
-        <div class="card-hover bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-          <div class="bg-gradient-to-r from-indigo-600 to-violet-600 p-6">
-            <span class="text-indigo-100 text-xs font-semibold uppercase tracking-wide">Healthcare • Data</span>
-            <h3 class="font-display text-xl font-bold text-white mt-2">PHIP</h3>
-            <p class="text-indigo-100 text-sm">Patient History Intelligence Platform</p>
-          </div>
-          <div class="p-6">
-            <p class="text-slate-600 text-sm leading-relaxed mb-5">
-              Patient medical history manage aur analyze karne ka system. SQL, data handling aur basic AI chatbot ke sath.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-5">
-              <span class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Python</span>
-              <span class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Django</span>
-              <span class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">SQL</span>
-              <span class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">JavaScript</span>
+
+      <div class="grid lg:grid-cols-2 gap-6">
+
+
+        <!-- PHIP -->
+
+        <article class="card glass rounded-3xl overflow-hidden reveal">
+
+          <div class="relative p-8 bg-gradient-to-br from-violet-600/25 via-indigo-500/10 to-transparent">
+
+            <div class="flex items-center justify-between">
+
+              <span class="text-xs uppercase tracking-[.18em] text-violet-300 font-bold">
+                Featured Project
+              </span>
+
+              <i class="fa-solid fa-heart-pulse text-3xl text-violet-300"></i>
+
             </div>
-            <a href="https://github.com/afaqahmad08/PHIP-PATIENT-HISTORY-INTELLIGENCE-PLATFORM-" target="_blank"
-               class="text-primary font-semibold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all">
-              <i class="fab fa-github"></i> GitHub pe dekho
-            </a>
+
+            <h3 class="font-display text-3xl font-bold text-white mt-8">
+              PHIP
+            </h3>
+
+            <p class="text-slate-300 mt-2">
+              Patient History Intelligence Platform
+            </p>
+
           </div>
+
+
+          <div class="p-8">
+
+            <p class="text-slate-400 leading-7">
+
+              A healthcare platform designed to manage and organize patient medical history,
+              with data handling, web functionality and an AI chatbot component.
+
+            </p>
+
+
+            <div class="flex flex-wrap gap-2 mt-6">
+
+              <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-xs">
+                Python
+              </span>
+
+              <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-xs">
+                Django
+              </span>
+
+              <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-xs">
+                SQL
+              </span>
+
+              <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-xs">
+                JavaScript
+              </span>
+
+            </div>
+
+
+            <a href="https://github.com/afaqahmad08/PHIP-PATIENT-HISTORY-INTELLIGENCE-PLATFORM-"
+               target="_blank"
+               rel="noopener"
+               class="inline-flex items-center mt-7 text-violet-300 font-semibold text-sm hover:text-white transition">
+
+              View on GitHub
+
+              <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+
+            </a>
+
+          </div>
+
+        </article>
+
+
+
+        <!-- Portfolio -->
+
+        <article class="card glass rounded-3xl overflow-hidden reveal">
+
+          <div class="relative p-8 bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-transparent">
+
+            <div class="flex items-center justify-between">
+
+              <span class="text-xs uppercase tracking-[.18em] text-cyan-300 font-bold">
+                Web Development
+              </span>
+
+              <i class="fa-solid fa-window-maximize text-3xl text-cyan-300"></i>
+
+            </div>
+
+            <h3 class="font-display text-3xl font-bold text-white mt-8">
+              Portfolio Website
+            </h3>
+
+            <p class="text-slate-300 mt-2">
+              Responsive personal portfolio
+            </p>
+
+          </div>
+
+
+          <div class="p-8">
+
+            <p class="text-slate-400 leading-7">
+
+              A responsive personal portfolio built around a modern visual system,
+              clear navigation, project presentation and direct contact options.
+
+            </p>
+
+
+            <div class="flex flex-wrap gap-2 mt-6">
+
+              <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-xs">
+                HTML5
+              </span>
+
+              <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-xs">
+                Tailwind CSS
+              </span>
+
+              <span class="bg-white/5 border border-white/10 px-3 py-1.5 rounded-full text-xs">
+                JavaScript
+              </span>
+
+            </div>
+
+
+            <a href="https://github.com/afaqahmad08/Portfolio-"
+               target="_blank"
+               rel="noopener"
+               class="inline-flex items-center mt-7 text-cyan-300 font-semibold text-sm hover:text-white transition">
+
+              View on GitHub
+
+              <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= ABOUT ================= -->
+
+  <section id="about"
+           class="py-24">
+
+    <div class="max-w-5xl mx-auto px-5">
+
+      <div class="grid md:grid-cols-[.7fr_1.3fr] gap-12 items-start">
+
+
+        <div class="reveal">
+
+          <p class="text-violet-300 text-sm font-semibold uppercase tracking-[.2em]">
+            03 — About
+          </p>
+
+          <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mt-3">
+            A little about me.
+          </h2>
+
         </div>
 
-        <div class="card-hover bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
-          <div class="bg-gradient-to-r from-cyan-600 to-blue-600 p-6">
-            <span class="text-cyan-100 text-xs font-semibold uppercase tracking-wide">Frontend • Design</span>
-            <h3 class="font-display text-xl font-bold text-white mt-2">Portfolio Website</h3>
-            <p class="text-cyan-100 text-sm">Personal responsive portfolio</p>
-          </div>
-          <div class="p-6">
-            <p class="text-slate-600 text-sm leading-relaxed mb-5">
-              Modern responsive portfolio website. HTML, Tailwind CSS aur JavaScript se banaya.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-5">
-              <span class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">HTML5</span>
-              <span class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">Tailwind</span>
-              <span class="text-xs bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full">JavaScript</span>
+
+        <div class="reveal text-slate-400 text-lg leading-8">
+
+          <p class="mb-5">
+
+            I'm
+
+            <strong class="text-white">
+              Afaq Ahmed Khan
+            </strong>,
+
+            a BS Information Technology graduate from UMT Lahore.
+
+            I have a strong foundation in programming, OOP and problem-solving.
+
+          </p>
+
+
+          <p class="mb-5">
+
+            My current goal is to build professional experience in
+
+            <strong class="text-violet-300">
+              Unity Game Development
+            </strong>
+
+            while continuing to grow across frontend and backend development.
+
+          </p>
+
+
+          <p>
+
+            I'm a fast learner, comfortable exploring new technologies
+            and ready to contribute in a professional team environment.
+
+          </p>
+
+
+          <!-- Info cards -->
+
+          <div class="grid sm:grid-cols-2 gap-4 mt-8">
+
+
+            <div class="glass rounded-2xl p-5">
+
+              <p class="text-slate-500 text-xs uppercase tracking-wider">
+                Education
+              </p>
+
+              <p class="text-white font-semibold mt-2">
+                BS Information Technology
+              </p>
+
+              <p class="text-slate-500 text-sm mt-1">
+                UMT Lahore
+              </p>
+
             </div>
-            <a href="https://github.com/afaqahmad08/Portfolio-" target="_blank"
-               class="text-primary font-semibold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all">
-              <i class="fab fa-github"></i> GitHub pe dekho
-            </a>
+
+
+            <div class="glass rounded-2xl p-5">
+
+              <p class="text-slate-500 text-xs uppercase tracking-wider">
+                Current Focus
+              </p>
+
+              <p class="text-white font-semibold mt-2">
+                Unity + C#
+              </p>
+
+              <p class="text-slate-500 text-sm mt-1">
+                Game Development
+              </p>
+
+            </div>
+
           </div>
+
         </div>
 
       </div>
+
     </div>
+
   </section>
 
-  <!-- About -->
-  <section id="about" class="py-20 bg-white">
-    <div class="max-w-3xl mx-auto px-5 text-center">
-      <p class="text-primary font-semibold text-sm uppercase tracking-wider mb-2">About Me</p>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-dark mb-8">About Me</h2>
-      
-      <p class="text-slate-600 text-lg leading-relaxed mb-4">
-        Main <strong>Afaq Ahmed Khan</strong> hoon — UMT Lahore se BS Information Technology graduate.
-      </p>
-      <p class="text-slate-600 text-lg leading-relaxed mb-4">
-        Strong programming foundation (Python, OOP, problem-solving) ke sath ab <strong>Unity Engine aur C#</strong> seekh raha hoon. Game Development mein practical experience hasil karne ke liye highly motivated hoon.
-      </p>
-      <p class="text-slate-600 text-lg leading-relaxed mb-8">
-        Fast learner hoon aur professional studio environment mein contribute karne ke liye ready hoon.
-      </p>
-      
-      <div class="flex flex-wrap justify-center gap-3">
-        <span class="bg-purple-50 text-purple-700 font-medium px-4 py-2 rounded-full text-sm">Unity</span>
-        <span class="bg-indigo-50 text-indigo-700 font-medium px-4 py-2 rounded-full text-sm">C#</span>
-        <span class="bg-violet-50 text-violet-700 font-medium px-4 py-2 rounded-full text-sm">Game Dev</span>
-        <span class="bg-cyan-50 text-cyan-700 font-medium px-4 py-2 rounded-full text-sm">Frontend</span>
+
+
+  <!-- ================= CONTACT ================= -->
+
+  <section id="contact"
+           class="relative py-24">
+
+    <div class="max-w-5xl mx-auto px-5">
+
+      <div class="glass rounded-[2rem] p-8 sm:p-12 text-center reveal overflow-hidden relative">
+
+
+        <!-- Glow -->
+
+        <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-72 h-72 bg-violet-600/20 blur-3xl rounded-full"></div>
+
+
+        <div class="relative">
+
+          <p class="text-cyan-300 text-sm font-semibold uppercase tracking-[.2em]">
+            04 — Contact
+          </p>
+
+
+          <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mt-3">
+            Let's build something.
+          </h2>
+
+
+          <p class="text-slate-400 max-w-xl mx-auto mt-5 leading-7">
+
+            Looking for Unity Developer Internship opportunities and ready to join immediately.
+
+            Have an opportunity or want to connect?
+
+            Let's talk.
+
+          </p>
+
+
+          <!-- Contact buttons -->
+
+          <div class="flex flex-wrap justify-center gap-3 mt-9">
+
+
+            <!-- Gmail -->
+
+            <a href="mailto:afaqahmad0817@gmail.com"
+               class="btn-main px-5 py-3 rounded-xl font-semibold">
+
+              <i class="fa-solid fa-envelope mr-2"></i>
+
+              Email
+
+            </a>
+
+
+            <!-- WhatsApp -->
+
+            <a href="https://wa.me/923190617290"
+               target="_blank"
+               rel="noopener"
+               class="btn-soft glass px-5 py-3 rounded-xl font-semibold">
+
+              <i class="fa-brands fa-whatsapp mr-2 text-emerald-400"></i>
+
+              WhatsApp
+
+            </a>
+
+
+            <!-- GitHub -->
+
+            <a href="https://github.com/afaqahmad08"
+               target="_blank"
+               rel="noopener"
+               class="btn-soft glass px-5 py-3 rounded-xl font-semibold">
+
+              <i class="fa-brands fa-github mr-2"></i>
+
+              GitHub
+
+            </a>
+
+
+            <!-- LinkedIn -->
+
+            <a href="https://www.linkedin.com/in/afaq-ahmed-khan-16b746307"
+               target="_blank"
+               rel="noopener"
+               class="btn-soft glass px-5 py-3 rounded-xl font-semibold">
+
+              <i class="fa-brands fa-linkedin mr-2 text-blue-400"></i>
+
+              LinkedIn
+
+            </a>
+
+          </div>
+
+        </div>
+
       </div>
+
     </div>
+
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-20 bg-dark">
-    <div class="max-w-3xl mx-auto px-5 text-center">
-      <p class="text-indigo-400 font-semibold text-sm uppercase tracking-wider mb-2">Contact</p>
-      <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mb-4">Let's Connect</h2>
-      <p class="text-slate-400 mb-10">
-        Looking for Unity Developer Internship opportunities. Available to join immediately.
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="border-t border-white/5 py-8">
+
+    <div class="max-w-6xl mx-auto px-5 flex flex-col sm:flex-row gap-4 items-center justify-between">
+
+
+      <p class="text-sm text-slate-500">
+
+        © 2026 Afaq Ahmed Khan.
+        All rights reserved.
+
       </p>
-      
-      <div class="flex flex-wrap justify-center gap-4">
-        <a href="mailto:afaqahmad0817@gmail.com" 
-           class="btn-main text-white font-semibold px-6 py-3 rounded-xl inline-flex items-center gap-2">
-          <i class="fas fa-envelope"></i> Email
-        </a>
-        <a href="https://wa.me/923190617290" target="_blank"
-           class="bg-white/10 hover:bg-white/15 border border-white/10 text-white font-semibold px-5 py-3 rounded-xl inline-flex items-center gap-2 transition">
-          <i class="fab fa-whatsapp"></i> WhatsApp
-        </a>
-        <a href="https://www.linkedin.com/in/afaq-ahmed-khan-16b746307" target="_blank"
-           class="bg-white/10 hover:bg-white/15 border border-white/10 text-white font-semibold px-5 py-3 rounded-xl inline-flex items-center gap-2 transition">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-      </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="bg-dark border-t border-white/5 py-6">
-    <div class="max-w-6xl mx-auto px-5 text-center text-slate-500 text-sm">
-      © 2026 Afaq Ahmed Khan
+
+      <div class="flex gap-5 text-slate-500">
+
+
+        <a href="https://github.com/afaqahmad08"
+           target="_blank"
+           aria-label="GitHub"
+           class="hover:text-white transition">
+
+          <i class="fa-brands fa-github"></i>
+
+        </a>
+
+
+        <a href="https://www.linkedin.com/in/afaq-ahmed-khan-16b746307"
+           target="_blank"
+           aria-label="LinkedIn"
+           class="hover:text-white transition">
+
+          <i class="fa-brands fa-linkedin"></i>
+
+        </a>
+
+
+        <a href="https://wa.me/923190617290"
+           target="_blank"
+           aria-label="WhatsApp"
+           class="hover:text-emerald-400 transition">
+
+          <i class="fa-brands fa-whatsapp"></i>
+
+        </a>
+
+
+        <a href="mailto:afaqahmad0817@gmail.com"
+           aria-label="Email"
+           class="hover:text-violet-300 transition">
+
+          <i class="fa-solid fa-envelope"></i>
+
+        </a>
+
+      </div>
+
     </div>
+
   </footer>
+
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    /* Mobile Menu */
+
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+
+      mobileMenu.classList.toggle("hidden");
+
+    });
+
+
+    /* Close mobile menu after clicking */
+
+    document.querySelectorAll("#mobileMenu a").forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        mobileMenu.classList.add("hidden");
+
+      });
+
+    });
+
+
+    /* Scroll Reveal */
+
+    const observer = new IntersectionObserver(
+
+      (entries) => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
+          }
+
+        });
+
+      },
+
+      {
+        threshold: 0.12
+      }
+
+    );
+
+
+    document.querySelectorAll(".reveal").forEach(element => {
+
+      observer.observe(element);
+
+    });
+
+  </script>
 
 </body>
 </html>
